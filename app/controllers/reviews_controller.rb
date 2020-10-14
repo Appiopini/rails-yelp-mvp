@@ -1,2 +1,2 @@
-class ReviewController < ApplicationController
+class ReviewsController < ApplicationController
 end
