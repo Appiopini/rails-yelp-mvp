@@ -3,10 +3,8 @@
 <th> List
   <ul>
     <% @restaurants.each do |restaurant| %>
-      <li><%= restaurant.name %></li>
-      <li><%= restaurant.address %></li>
-      <li><%= restaurant.phone_number %></li>
-      <li><%= restaurant.category %></li>
+      <li><%= link_to restaurant.name, restaurant_path(restaurant) %></li>
     <% end %>
   </ul>
 </th>
+<%= link_to "New", new_restaurant_path %>

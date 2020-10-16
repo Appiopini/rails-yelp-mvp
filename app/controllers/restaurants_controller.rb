@@ -1,5 +1,5 @@
 class RestaurantsController < ApplicationController
-  before_action :set_restaurant, only: [, :edit, :update, :destroy ]
+  before_action :set_restaurant, only: [ :show, :edit, :update, :destroy ]
 
   def index
     # listar todos restaurants
@@ -12,16 +12,17 @@ class RestaurantsController < ApplicationController
 
   def new
     # show formulario para novo restaurant
-    @restaurant = Restaurant.create
+    @restaurant = Restaurant.new
   end
 
   def create
     # criar um novo restaurant
-    new_restaurant = Restaurant.new(restaurant_params)
-
-    new_restaurant.save
-
-    # redirect_to ?
+    @restaurant = Restaurant.new(restaurant_params)
+    if @restaurant.save
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -29,6 +30,11 @@ class RestaurantsController < ApplicationController
   end
 
   def update
+    if @restaurant.update(restaurant_params)
+      redirect_to restaurant_path(@restaurant)
+    else
+      render :edit
+    end
     # confirmar a edicao do restaurant
   end
 
@@ -38,6 +44,8 @@ class RestaurantsController < ApplicationController
 
   def destroy
     # delete restaurant
+    @restaurant.destroy
+    redirect_to restaurants_path
   end
 
   private

@@ -1,7 +1,9 @@
-<h2>Nome do Restaurante<%= @restaurant.name %></h2>
 
-<p>Endereço<%= restaurant.address %></p>
-<p>Telefone<%= restaurant.phone_number %></p>
-<p>Categoria<%= restaurant.category %></p>
+<h2>Nome do Restaurante <%= @restaurant.name %></h2>
 
-<!-- <p>Avaliação<%= '⭐️' * @restaurant.rating %></p> -->
+<p>Endereço <%= @restaurant.address %></p>
+<p>Telefone <%= @restaurant.phone_number %></p>
+<p>Categoria <%= @restaurant.category %></p>
+
+<%= link_to "Edit", edit_restaurant_path %>
+<%= link_to "Home", restaurants_path %>
