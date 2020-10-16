@@ -1,11 +1,2 @@
-<!-- <form action="/restaurant" method="post">
-  <%= hidden_field_tag :autenticity_token, form_autenticity_token %>
-  <input type="text" name="name">
-  <input type="text" name="address">
-  <input type="number" name="phone_number">
-  <input type="text" name="category">
-  <input type="submit">
-</form>
- -->
 <%= render "form" %>
-<%= link_to "Back", restaurants_path %>
+<%= link_to "Back", restaurants_path, class: "btn btn-primary" %>
